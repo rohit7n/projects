@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Genhash</title>
+<style>
+body{margin:0;font-family:system-ui,sans-serif;background:#0f172a;color:#e5e7eb}
+header{padding:20px;text-align:center;background:#111827;border-bottom:1px solid #1f2937}
+h1{margin:0;font-size:22px;font-weight:600}
+.container{max-width:450px;margin:auto;padding:15px}
+.card{background:#111827;border:1px solid #1f2937;border-radius:12px;padding:15px;margin-bottom:15px}
+h2{margin:0 0 12px 0;font-size:16px}
+input,textarea,button{width:100%;padding:10px;margin:6px 0;border-radius:8px;border:1px solid #1f2937;background:#0b1220;color:#e5e7eb}
+textarea{resize:vertical;min-height:60px}
+button{background:#2563eb;border:none;font-weight:600;cursor:pointer}
+button:hover{background:#3b82f6}
+.status{font-size:12px;color:#9ca3af}
+.result-actions{display:flex;gap:8px;flex-wrap:wrap}
+.result-actions button{flex:1}
+@media(max-width:400px){.result-actions{flex-direction:column}}
+</style>
+</head>
+<body>
+<header><h1>Genhash</h1></header>
+<div class="container">
+
+<div class="card">
+<h2>SHA-256 File Hash</h2>
+<input type="file" id="fileInput">
+<button onclick="hashFile()">Generate Hash</button>
+<div class="status" id="hashStatus"></div>
+<label>Hash Result</label>
+<textarea id="hashOutput" readonly></textarea>
+<div class="result-actions">
+<button onclick="copyHash()">Copy</button>
+<button onclick="downloadHash()">Download</button>
+</div>
+</div>
+
+<div class="card">
+<h2>Compare Hashes</h2>
+<textarea id="hashA" placeholder="Enter Hash A"></textarea>
+<textarea id="hashB" placeholder="Enter Hash B"></textarea>
+<button onclick="compareHashes()">Compare</button>
+<div class="status" id="compareStatus"></div>
+</div>
+
+</div>
+<script>
+// Convert ArrayBuffer to Hex
+const bufToHex = b=>Array.from(new Uint8Array(b)).map(x=>x.toString(16).padStart(2,'0')).join('');
+
+// Generate SHA-256 hash of file
+async function hashFile(){
+  const f=document.getElementById("fileInput").files[0];
+  const status=document.getElementById("hashStatus");
+  const out=document.getElementById("hashOutput");
+  if(!f){alert("Select a file.");return;}
+  status.innerText="Processing...";
+  try{
+    const buf=await f.arrayBuffer();
+    const hash=await crypto.subtle.digest('SHA-256',buf);
+    out.value=bufToHex(hash);
+    status.innerText="Done";
+  }catch(e){status.innerText="Error";console.error(e);}
+}
+
+// Copy hash
+function copyHash(){const h=document.getElementById("hashOutput").value;if(h)navigator.clipboard.writeText(h)}
+
+// Download hash
+function downloadHash(){const h=document.getElementById("hashOutput").value;if(!h)return;const a=document.createElement("a");a.href=URL.createObjectURL(new Blob([h],{type:'text/plain'}));a.download="hash.txt";a.click()}
+
+// Compare hashes
+function compareHashes(){
+  const a=document.getElementById("hashA").value.trim();
+  const b=document.getElementById("hashB").value.trim();
+  const status=document.getElementById("compareStatus");
+  if(!a||!b){status.innerText="Enter both hashes.";return;}
+  status.innerText=(a===b)?"✅ Hashes Match":"❌ Hashes Are Different";
+}
+</script>
+</body>
+</html>

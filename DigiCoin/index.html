@@ -1,0 +1,740 @@
+<div id="digicoin-ad">
+<style>
+#digicoin-ad {
+  --gold:#f5c85d;
+  --gold2:#ffdf91;
+  --green:#67e6a4;
+  color:#fff;
+  font-family:Inter,Arial,Helvetica,sans-serif;
+  width:100%;
+  background:#000;
+  box-sizing:border-box;
+  color-scheme:dark;
+}
+#digicoin-ad * {box-sizing:border-box}
+
+#digicoin-ad .panel {
+  width:100%;
+  max-width:1120px;
+  margin:auto;
+  position:relative;
+  overflow:hidden;
+  isolation:isolate;
+  padding:clamp(20px,4vw,42px);
+  display:grid;
+  grid-template-columns:1.08fr .92fr;
+  align-items:center;
+  gap:25px;
+  border:1px solid #f5c85d45;
+  border-radius:24px;
+  background:
+    radial-gradient(ellipse at 15% 5%,#f5c85d16,transparent 38%),
+    radial-gradient(ellipse at 88% 78%,#a66b2518,transparent 38%),
+    #000;
+  box-shadow:0 0 35px #f5c85d0b,
+             inset 0 0 45px #f5c85d05;
+}
+
+#digicoin-ad .panel:before {
+  content:"";
+  position:absolute;
+  inset:0;
+  pointer-events:none;
+  z-index:-1;
+  background:
+    linear-gradient(120deg,transparent 20%,
+    #ffffff03 45%,transparent 70%);
+}
+
+#digicoin-ad .left {
+  min-width:0;
+  position:relative;
+  z-index:2;
+}
+
+/* BRAND */
+#digicoin-ad .brand {
+  display:flex;
+  align-items:center;
+  gap:12px;
+  margin-bottom:23px;
+}
+
+#digicoin-ad .logo {
+  width:48px;
+  height:48px;
+  display:grid;
+  place-items:center;
+  border-radius:14px;
+  color:#100b00;
+  font-size:29px;
+  font-weight:900;
+  background:linear-gradient(140deg,#fff0b8,#f5c85d 55%,#a87518);
+  box-shadow:0 0 22px #f5c85d45;
+}
+
+#digicoin-ad .brand-name {
+  font-size:25px;
+  font-weight:950;
+  letter-spacing:4px;
+  color:#ffe3a0;
+  text-shadow:0 0 22px #f5c85d4d;
+}
+
+#digicoin-ad .tag {
+  font-size:9px;
+  color:#a7a7a7;
+  letter-spacing:2.4px;
+  margin-top:5px;
+}
+
+/* DIWALI MESSAGE */
+#digicoin-ad .gift {
+  display:inline-flex;
+  align-items:center;
+  gap:7px;
+  padding:9px 14px;
+  border:1px solid #f5c85d65;
+  border-radius:50px;
+  color:#ffe4a5;
+  background:#f5c85d0c;
+  font-size:10px;
+  font-weight:850;
+  letter-spacing:1.1px;
+  box-shadow:0 0 18px #f5c85d12;
+}
+
+#digicoin-ad h1 {
+  color:#fff;
+  font-size:clamp(38px,5.4vw,64px);
+  line-height:.99;
+  letter-spacing:-2.5px;
+  margin:20px 0 14px;
+  font-weight:950;
+}
+
+#digicoin-ad h1 span {
+  background:linear-gradient(100deg,#fff0bb,#f5c85d 55%,#c28b2d);
+  -webkit-background-clip:text;
+  background-clip:text;
+  color:transparent;
+  filter:drop-shadow(0 0 13px #f5c85d28);
+}
+
+#digicoin-ad .diwali {
+  color:#fff;
+  font-size:19px;
+  line-height:1.5;
+  font-weight:750;
+  margin-bottom:11px;
+}
+
+#digicoin-ad .diwali strong {
+  color:#f5cd70;
+}
+
+#digicoin-ad .desc {
+  max-width:460px;
+  color:#a9a9a9;
+  font-size:13px;
+  line-height:1.7;
+}
+
+/* FREE OFFER */
+#digicoin-ad .free {
+  display:inline-flex;
+  align-items:center;
+  gap:9px;
+  margin-top:17px;
+  padding:11px 19px;
+  border:1px solid #f5c85d;
+  border-radius:50px;
+  color:#ffe49d;
+  background:linear-gradient(100deg,#f5c85d13,#f5c85d05);
+  font-size:17px;
+  font-weight:950;
+  letter-spacing:1.4px;
+  box-shadow:0 0 20px #f5c85d20,
+             inset 0 0 12px #f5c85d0c;
+}
+
+/* FEATURE CARDS */
+#digicoin-ad .features {
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:8px;
+  margin:19px 0;
+}
+
+#digicoin-ad .feature {
+  display:flex;
+  align-items:center;
+  gap:9px;
+  min-width:0;
+  padding:10px 9px;
+  color:#dedede;
+  font-size:11px;
+  border:1px solid #ffffff12;
+  border-radius:11px;
+  background:linear-gradient(135deg,#151515,#080808);
+  transition:border-color .25s,transform .25s,box-shadow .25s;
+}
+
+#digicoin-ad .feature:hover {
+  border-color:#f5c85d90;
+  transform:translateY(-2px);
+  box-shadow:0 4px 18px #f5c85d12;
+}
+
+#digicoin-ad .feature b {
+  min-width:22px;
+  height:22px;
+  display:grid;
+  place-items:center;
+  border-radius:7px;
+  color:#f5cf73;
+  background:#f5c85d13;
+  font-size:14px;
+}
+
+/* OFFLINE */
+#digicoin-ad .offline {
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  gap:8px;
+  color:#7de5ae;
+  font-size:11px;
+  font-weight:850;
+  letter-spacing:2.2px;
+  margin-bottom:14px;
+}
+
+#digicoin-ad .offline:before,
+#digicoin-ad .offline:after {
+  content:"";
+  width:24px;
+  height:1px;
+  background:#67e6a470;
+}
+
+/* DOWNLOAD */
+#digicoin-ad .download {
+  width:100%;
+  max-width:320px;
+  min-height:57px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:12px;
+  padding:13px 18px;
+  border:1px solid #ffe7a5;
+  border-radius:13px;
+  color:#160f03;
+  background:linear-gradient(110deg,#fff0b8,#f5c85d 55%,#c58f2e);
+  text-decoration:none;
+  font-size:16px;
+  font-weight:950;
+  letter-spacing:.7px;
+  box-shadow:0 0 12px #f5c85d45,
+             0 8px 28px #f5c85d20;
+  transition:transform .2s,filter .2s,box-shadow .2s;
+  animation:goldGlow 3s ease-in-out infinite;
+}
+
+#digicoin-ad .download:hover {
+  filter:brightness(1.12);
+  transform:translateY(-3px);
+  box-shadow:0 0 28px #f5c85d65;
+}
+
+#digicoin-ad .download-icon {
+  font-size:23px;
+}
+
+#digicoin-ad .android {
+  color:#818181;
+  font-size:10px;
+  letter-spacing:1.1px;
+  margin-top:9px;
+  max-width:320px;
+  text-align:center;
+}
+
+#digicoin-ad .maker {
+  color:#888;
+  font-size:10px;
+  letter-spacing:1.5px;
+  margin-top:17px;
+}
+
+#digicoin-ad .maker strong {
+  color:#f2cf7c;
+}
+
+/* PHONE PREVIEW */
+#digicoin-ad .preview {
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  position:relative;
+  min-width:0;
+  padding:22px 0;
+}
+
+#digicoin-ad .halo {
+  position:absolute;
+  width:300px;
+  height:300px;
+  border-radius:50%;
+  background:#f5c85d17;
+  filter:blur(75px);
+  pointer-events:none;
+}
+
+#digicoin-ad .ring {
+  position:absolute;
+  width:340px;
+  aspect-ratio:1;
+  border:1px solid #f5c85d36;
+  border-radius:50%;
+  box-shadow:0 0 0 25px #f5c85d08,
+             0 0 0 55px #f5c85d04;
+}
+
+#digicoin-ad .phone {
+  position:relative;
+  z-index:1;
+  width:265px;
+  max-width:100%;
+  padding:8px;
+  border:1px solid #d6af58;
+  border-radius:32px;
+  background:linear-gradient(145deg,#9b7935,#27200f 50%,#8b662b);
+  box-shadow:0 25px 65px #000,
+             0 0 30px #f5c85d20;
+  transform:rotate(1.5deg);
+}
+
+#digicoin-ad .screen {
+  padding:15px 12px;
+  border-radius:25px;
+  background:#050505;
+  border:1px solid #ffffff0e;
+}
+
+#digicoin-ad .apphead {
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  font-size:11px;
+  font-weight:900;
+  margin-bottom:13px;
+}
+
+#digicoin-ad .apphead span:first-child {
+  color:#ffe4a0;
+  letter-spacing:1px;
+}
+
+#digicoin-ad .apphead span:last-child {
+  color:#d9b65e;
+  font-size:9px;
+}
+
+#digicoin-ad .balance {
+  border:1px solid #d9b65c65;
+  border-radius:13px;
+  padding:14px;
+  background:radial-gradient(ellipse at top right,#76531d55,transparent 70%),#11100d;
+  box-shadow:inset 0 0 18px #f5c85d08;
+}
+
+#digicoin-ad .small-label {
+  color:#9a9486;
+  font-size:9px;
+  letter-spacing:.5px;
+}
+
+#digicoin-ad .amount {
+  color:#ffe6ad;
+  font-size:27px;
+  font-weight:950;
+  margin:7px 0 13px;
+}
+
+#digicoin-ad .numbers {
+  display:flex;
+  justify-content:space-between;
+  gap:8px;
+  font-size:10px;
+}
+
+#digicoin-ad .green {color:#7ce5ab}
+#digicoin-ad .red {color:#ff9c91}
+
+#digicoin-ad .card {
+  border:1px solid #ffffff16;
+  background:linear-gradient(145deg,#141414,#090909);
+  border-radius:12px;
+  padding:12px;
+  margin-top:10px;
+}
+
+#digicoin-ad .card-title {
+  font-size:11px;
+  font-weight:850;
+  color:#f0e7d4;
+}
+
+#digicoin-ad .stats {
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:5px;
+  margin-top:11px;
+}
+
+#digicoin-ad .stat {
+  background:#1d1b15;
+  border:1px solid #ffffff0b;
+  border-radius:8px;
+  padding:8px 4px;
+}
+
+#digicoin-ad .stat small {
+  display:block;
+  color:#9c978d;
+  font-size:8px;
+}
+
+#digicoin-ad .stat b {
+  display:block;
+  font-size:10px;
+  color:#f4e5bf;
+  margin-top:5px;
+}
+
+#digicoin-ad .budgetline {
+  display:flex;
+  justify-content:space-between;
+  color:#aaa;
+  font-size:8px;
+  margin-top:11px;
+}
+
+#digicoin-ad .bar {
+  height:5px;
+  background:#393326;
+  border-radius:8px;
+  margin-top:6px;
+  overflow:hidden;
+}
+
+#digicoin-ad .bar i {
+  display:block;
+  width:62%;
+  height:100%;
+  border-radius:8px;
+  background:linear-gradient(90deg,#aa7924,#ffe49d);
+  box-shadow:0 0 8px #f5c85d80;
+}
+
+#digicoin-ad .recent {
+  font-size:11px;
+  font-weight:850;
+  color:#eee5d4;
+  margin:13px 0 4px;
+}
+
+#digicoin-ad .transaction {
+  display:flex;
+  align-items:center;
+  gap:8px;
+  padding:8px 1px;
+  border-bottom:1px solid #ffffff0d;
+}
+
+#digicoin-ad .txicon {
+  width:27px;
+  height:27px;
+  display:grid;
+  place-items:center;
+  border-radius:8px;
+  color:#f4d58c;
+  background:#f5c85d16;
+}
+
+#digicoin-ad .txname {
+  flex:1;
+  font-size:9px;
+  font-weight:750;
+  color:#eee;
+}
+
+#digicoin-ad .txname small {
+  display:block;
+  color:#777;
+  font-size:8px;
+  margin-top:3px;
+  font-weight:400;
+}
+
+#digicoin-ad .txamount {
+  font-size:9px;
+  font-weight:850;
+}
+
+#digicoin-ad .nav {
+  display:flex;
+  justify-content:space-around;
+  border-top:1px solid #ffffff15;
+  margin-top:10px;
+  padding-top:9px;
+  color:#999;
+  font-size:8px;
+}
+
+#digicoin-ad .nav span {text-align:center}
+
+#digicoin-ad .nav b {
+  display:block;
+  color:#f5c85d;
+  font-size:14px;
+  margin-bottom:3px;
+}
+
+#digicoin-ad .preview-label {
+  position:absolute;
+  z-index:2;
+  top:1%;
+  right:0;
+  color:#f8db91;
+  padding:9px 12px;
+  border:1px solid #f5c85d65;
+  border-radius:9px;
+  background:#090909;
+  font-size:9px;
+  letter-spacing:1px;
+  box-shadow:0 0 16px #f5c85d16;
+}
+
+#digicoin-ad .diya {
+  position:absolute;
+  z-index:2;
+  right:1%;
+  bottom:0;
+  font-size:49px;
+  filter:drop-shadow(0 0 16px #ffb83d);
+}
+
+/* ANIMATION */
+@keyframes goldGlow {
+  0%,100% {box-shadow:0 0 12px #f5c85d35,0 8px 24px #f5c85d16}
+  50% {box-shadow:0 0 24px #f5c85d65,0 8px 32px #f5c85d25}
+}
+
+/* GOOGLE SITES RESPONSIVE */
+@media(max-width:650px) {
+  #digicoin-ad .panel {
+    grid-template-columns:1fr;
+    gap:12px;
+    padding:20px 15px;
+    border-radius:18px;
+  }
+
+  #digicoin-ad .left {text-align:center}
+  #digicoin-ad .brand {justify-content:center;margin-bottom:14px}
+  #digicoin-ad .brand-name {font-size:22px}
+  #digicoin-ad .logo {width:42px;height:42px}
+
+  #digicoin-ad .gift {font-size:9px;padding:7px 11px}
+  #digicoin-ad h1 {font-size:clamp(38px,10vw,49px);margin:15px 0 9px}
+  #digicoin-ad .diwali {font-size:16px;margin-bottom:8px}
+  #digicoin-ad .desc {font-size:11px;margin:auto;line-height:1.55}
+  #digicoin-ad .free {font-size:15px;padding:9px 16px;margin-top:11px}
+
+  #digicoin-ad .features {
+    gap:7px;
+    margin:13px auto;
+    max-width:430px;
+  }
+
+  #digicoin-ad .feature {
+    font-size:10px;
+    padding:8px 6px;
+    text-align:left;
+  }
+
+  #digicoin-ad .feature b {
+    min-width:20px;
+    height:20px;
+  }
+
+  #digicoin-ad .offline {font-size:10px;margin-bottom:10px}
+  #digicoin-ad .download {margin:auto;max-width:300px;min-height:51px;font-size:15px}
+  #digicoin-ad .android {margin:7px auto 0}
+  #digicoin-ad .maker {font-size:9px;margin-top:12px}
+
+  #digicoin-ad .preview {padding:13px 0 8px}
+  #digicoin-ad .ring {width:280px}
+  #digicoin-ad .phone {width:220px;transform:none}
+  #digicoin-ad .screen {padding:11px}
+  #digicoin-ad .amount {font-size:23px}
+  #digicoin-ad .preview-label {top:0;right:2%;font-size:8px}
+  #digicoin-ad .diya {font-size:36px}
+}
+
+@media(max-width:370px) {
+  #digicoin-ad .panel {padding:14px 10px}
+  #digicoin-ad .feature {font-size:9px}
+  #digicoin-ad .phone {width:190px}
+  #digicoin-ad h1 {font-size:36px}
+}
+
+@media(prefers-reduced-motion:reduce) {
+  #digicoin-ad .download {animation:none}
+  #digicoin-ad .feature {transition:none}
+}
+</style>
+
+<div class="panel">
+
+  <section class="left">
+
+    <div class="brand">
+      <div class="logo">◈</div>
+      <div>
+        <div class="brand-name">DIGICOIN</div>
+        <div class="tag">TRACK · CONTROL · GROW</div>
+      </div>
+    </div>
+
+    <div class="gift">🎁 DIWALI 2026 · A GIFT TO ALL</div>
+
+    <h1>Make money<br><span>make sense.</span></h1>
+
+    <div class="diwali">
+      This Diwali 2026,<br>
+      <strong>A GIFT TO EVERYONE!</strong> 🪔
+    </div>
+
+    <p class="desc">
+      Meet Digicoin — your everyday money companion.
+      Track your cashflow, manage spending, plan savings
+      and keep your finances organised, all in one app.
+    </p>
+
+    <div class="free">✦ 100% FREE OF COST ✦</div>
+
+    <div class="features">
+      <div class="feature"><b>↗</b> Income & expenses</div>
+      <div class="feature"><b>◷</b> Transaction history</div>
+      <div class="feature"><b>▥</b> Monthly budgets</div>
+      <div class="feature"><b>◉</b> Spending insights</div>
+      <div class="feature"><b>◷</b> Daily spending planner</div>
+      <div class="feature"><b>◎</b> Savings goal calculator</div>
+      <div class="feature"><b>⇄</b> Bill splitter</div>
+      <div class="feature"><b>▦</b> Recurring monthly bills</div>
+      <div class="feature"><b>⇅</b> CSV import & export</div>
+    </div>
+
+    <div class="offline">✦ WORKS OFFLINE ✦</div>
+
+    <!-- YOUR GOOGLE DRIVE APK LINK -->
+    <a class="download"
+       href="https://drive.google.com/uc?export=download&id=1LqpHkbiZ3AAJvzVqRVp8eG56gP-iFkOE"
+       target="_blank" rel="noopener">
+      <span class="download-icon">↓</span>
+      DOWNLOAD DIGICOIN
+    </a>
+
+    <div class="android">
+      ANDROID APP · STANDARD APK · FREE DOWNLOAD
+    </div>
+
+    <div class="maker">
+      A FESTIVE GIFT WITH BEST WISHES<br>
+      <strong>APP BY ROHIT</strong>
+    </div>
+
+  </section>
+
+  <section class="preview">
+
+    <div class="halo"></div>
+    <div class="ring"></div>
+
+    <div class="preview-label">✦ YOUR MONEY, AT A GLANCE</div>
+
+    <div class="phone">
+      <div class="screen">
+
+        <div class="apphead">
+          <span>◈ DIGICOIN</span>
+          <span>OVERVIEW</span>
+        </div>
+
+        <div class="balance">
+          <div class="small-label">TOTAL BALANCE</div>
+          <div class="amount">₹ 48,250</div>
+          <div class="numbers">
+            <div>
+              <div class="small-label">INCOME</div>
+              <b class="green">+ ₹62,000</b>
+            </div>
+            <div>
+              <div class="small-label">EXPENSES</div>
+              <b class="red">− ₹13,750</b>
+            </div>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-title">This month's budget</div>
+          <div class="stats">
+            <div class="stat"><small>Spent</small><b>₹13,750</b></div>
+            <div class="stat"><small>Budget</small><b>₹22,000</b></div>
+            <div class="stat"><small>Left</small><b class="green">₹8,250</b></div>
+          </div>
+          <div class="budgetline">
+            <span>Monthly spending</span><span>62%</span>
+          </div>
+          <div class="bar"><i></i></div>
+        </div>
+
+        <div class="recent">Recent transactions</div>
+
+        <div class="transaction">
+          <div class="txicon">↗</div>
+          <div class="txname">Salary<small>Income · Today</small></div>
+          <div class="txamount green">+₹50,000</div>
+        </div>
+
+        <div class="transaction">
+          <div class="txicon">⌂</div>
+          <div class="txname">Groceries<small>Food · Yesterday</small></div>
+          <div class="txamount red">−₹2,450</div>
+        </div>
+
+        <div class="transaction">
+          <div class="txicon">◇</div>
+          <div class="txname">Electricity<small>Bills · November</small></div>
+          <div class="txamount red">−₹1,800</div>
+        </div>
+
+        <div class="nav">
+          <span><b>⌂</b>Home</span>
+          <span><b>◷</b>History</span>
+          <span><b>▤</b>Budget</span>
+          <span><b>⚙</b>Tools</span>
+        </div>
+
+      </div>
+    </div>
+
+    <div class="diya">🪔</div>
+
+  </section>
+
+</div>
+</div>
